@@ -4,7 +4,7 @@ void main(){
   int? no1;
   int no2;
 
-  no1 = 5;
+  no1 = 5~/2;
 
   //no1!*4;
 
