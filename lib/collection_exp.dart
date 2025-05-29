@@ -74,10 +74,32 @@ void main() {
       "email" : "yt346@example.com",
       "mobNo" : 9876543210,
       "marks" : {
-        "eng" : 88,
-        "hin" : 79,
-        "maths" : [94,99],
-        "sci" : 89,
+        "eng" : 80,
+        "hin" : 69,
+        "maths" : [84,89],
+        "sci" : 91,
+        "sst" : 90
+      },
+      "percentage" : 90.0,
+      "result" : true
+    },
+    {
+      "name" : "Rajveer",
+      "rollNo" : 2,
+      "age" : 16,
+      "class" : 'X',
+      "sec" : 'B',
+      "fee" : true,
+      "fName" : "Rajit",
+      "mName" : "Suman",
+      "address" : "Pune",
+      "email" : "hsjgf567@example.com",
+      "mobNo" : 9874566547,
+      "marks" : {
+        "eng" : 99,
+        "hin" : 99,
+        "maths" : [94,100],
+        "sci" : 99,
         "sst" : 97
       },
       "percentage" : 90.0,
@@ -96,11 +118,11 @@ void main() {
       "email" : "yt346@example.com",
       "mobNo" : 9876543210,
       "marks" : {
-        "eng" : 88,
-        "hin" : 79,
-        "maths" : [94,99],
-        "sci" : 89,
-        "sst" : 97
+        "eng" : 98,
+        "hin" : 99,
+        "maths" : [84,89],
+        "sci" : 79,
+        "sst" : 77
       },
       "percentage" : 90.0,
       "result" : true
@@ -118,16 +140,61 @@ void main() {
       "email" : "yt346@example.com",
       "mobNo" : 9876543210,
       "marks" : {
-        "eng" : 88,
-        "hin" : 79,
-        "maths" : [94,99],
-        "sci" : 89,
-        "sst" : 97
+        "eng" : 78,
+        "hin" : 99,
+        "maths" : [100,99],
+        "sci" : 79,
+        "sst" : 99
       },
       "percentage" : 90.0,
       "result" : true
     },
   ];
+
+  ///3. Find Percentage of all students.
+  List<num> allPercentages = [];
+  ///num totalOfPer = 0;
+  num highestPer = 0;
+  String topperName = "";
+
+  for(int i = 0; i<allStu.length; i++){
+    double mathAvg = (allStu[i]["marks"]["maths"][0] + allStu[i]["marks"]["maths"][1])/2;
+
+    num totalMarks =
+        allStu[i]["marks"]["eng"]
+            + allStu[i]["marks"]["hin"]
+            + mathAvg
+            + allStu[i]["marks"]["sci"]
+            + allStu[i]["marks"]["sst"];
+
+    double percentage = totalMarks/5;
+    if(percentage>highestPer){
+      highestPer = percentage;
+      topperName = allStu[i]['name'];
+    }
+    ///totalOfPer += percentage;
+    allPercentages.add(percentage);
+    print(percentage);
+  }
+  print(allPercentages);
+
+  num totalOfPer = 0;
+
+  for(int a = 0; a<allPercentages.length; a++){
+    totalOfPer += allPercentages[a];
+  }
+
+  ///4. Find the Average percentage of all students.
+  print(totalOfPer/allStu.length);
+
+
+
+  ///5. Find out the Topper from the 5 students.
+  print("The Topper of the class is $topperName with Highest Percentage: $highestPer");
+
+  ///6. Find out the Second, third and Last rank student from the 6 students.
+
+
 
   int no1 = allStu[1]["marks"]["maths"][0];
   int no2 = allStu[1]["marks"]["maths"][1];
@@ -139,9 +206,15 @@ void main() {
     totalMathsMarks = totalMathsMarks + allStu[1]["marks"]["maths"][i];
   }*/
 
-  for(int i = 0; i<allStu.length; i++){
-    print(allStu[i]["marks"]["hin"]);
-  }
+  /*print(allStu[0]["marks"]["hin"]);
+  print(allStu[1]["marks"]["hin"]);
+  print(allStu[2]["marks"]["hin"]);
+  print(allStu[3]["marks"]["hin"]);
+  print(allStu[4]["marks"]["hin"]);*/
+
+  /*for(int i = 0; i<allStu.length; i++){
+    print(allStu[i]["marks"]["hin"]+allStu[i]["marks"]["eng"]+allStu[i]["marks"]["sci"]+allStu[i]["marks"]["sst"]);
+  }*/
 
   ///print(totalMathsMarks/2);
 
@@ -162,9 +235,7 @@ void main() {
   // mobNo,
   // grade)
 
-  ///3. Find Percentage of all students.
-  ///4. Find the Average percentage of all students.
-  ///5. Find out the Topper from the 5 students.
+
 
   Set<String> months = {
     'January',
