@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:classico_411/high_order_func.dart';
+
 /*void main(){
 
   *//*int no1, no2, sum;
@@ -56,6 +58,10 @@ import 'dart:io';
 }*/
 
 void main(){
+
+  /*example(test);
+  sample();*/
+
   print("Enter no1: ");
 
   int no1 =  int.parse(stdin.readLineSync().toString());
